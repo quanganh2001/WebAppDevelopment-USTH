@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .login-container {
+            width: 300px;
+            padding: 16px;
+            background-color: white;
+            margin: 0 auto;
+            margin-top: 100px;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+        .login-container input[type=text], .login-container input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .login-container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <button type="submit" onclick="validatePassword()">Login</button>
+    </div>
+
+    <script>
+        function validatePassword() {
+            var password = document.getElementsByName('psw')[0].value;
+            var regex = /^(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
+            if (regex.test(password)) {
+                alert("Login successful");
+            } else {
+                alert("Invalid password. Password must contain at least 1 uppercase and no special character. Valid characters are a-z, A-Z, and 0-9.");
+            }
+        }
+    </script>
+</body>
+</html>
